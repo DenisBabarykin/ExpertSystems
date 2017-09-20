@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductionSystem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,20 +22,51 @@ namespace ProductionUI
 
         private void OpenRulesFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                txtbxRules.Text = File.ReadAllText(openFileDialog.FileName);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtbxRules.Text = File.ReadAllText(openFileDialog.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnForwardChaining_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var engine = new ProductionInferenceEngine(RulesConverter.ConvertToRules(txtbxRules.Text));
+                var result = engine.ExecuteForwardChaining(txtbxFact.Text, txtbxGoal.Text);
+                if (result.HasSolution)
+                    txtbxSolution.Text = RulesConverter.ConvertToText(result.Explanation);
+                else
+                    txtbxSolution.Text = "Нет решений";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBackwardChaining_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var engine = new ProductionInferenceEngine(RulesConverter.ConvertToRules(txtbxRules.Text));
+                var result = engine.ExecuteBackwardChaining(txtbxFact.Text, txtbxGoal.Text);
+                if (result.HasSolution)
+                    txtbxSolution.Text = RulesConverter.ConvertToText(result.Explanation);
+                else
+                    txtbxSolution.Text = "Нет решений";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

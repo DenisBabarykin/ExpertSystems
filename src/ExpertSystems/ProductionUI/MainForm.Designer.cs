@@ -40,9 +40,9 @@
             this.grpbxInput = new System.Windows.Forms.GroupBox();
             this.lblRules = new System.Windows.Forms.Label();
             this.grpbxOutput = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbxSolution = new System.Windows.Forms.TextBox();
             this.btnForwardChaining = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBackwardChaining = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.grpbxInput.SuspendLayout();
             this.grpbxOutput.SuspendLayout();
@@ -145,7 +145,7 @@
             // 
             // grpbxOutput
             // 
-            this.grpbxOutput.Controls.Add(this.textBox1);
+            this.grpbxOutput.Controls.Add(this.txtbxSolution);
             this.grpbxOutput.Location = new System.Drawing.Point(241, 27);
             this.grpbxOutput.Name = "grpbxOutput";
             this.grpbxOutput.Size = new System.Drawing.Size(218, 213);
@@ -153,14 +153,14 @@
             this.grpbxOutput.TabStop = false;
             this.grpbxOutput.Text = "Решение";
             // 
-            // textBox1
+            // txtbxSolution
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 34);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(206, 170);
-            this.textBox1.TabIndex = 1;
+            this.txtbxSolution.Location = new System.Drawing.Point(6, 34);
+            this.txtbxSolution.Multiline = true;
+            this.txtbxSolution.Name = "txtbxSolution";
+            this.txtbxSolution.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtbxSolution.Size = new System.Drawing.Size(206, 170);
+            this.txtbxSolution.TabIndex = 1;
             // 
             // btnForwardChaining
             // 
@@ -172,22 +172,22 @@
             this.btnForwardChaining.UseVisualStyleBackColor = true;
             this.btnForwardChaining.Click += new System.EventHandler(this.btnForwardChaining_Click);
             // 
-            // button1
+            // btnBackwardChaining
             // 
-            this.button1.Location = new System.Drawing.Point(241, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 28);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Обратный вывод";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBackwardChaining.Location = new System.Drawing.Point(241, 246);
+            this.btnBackwardChaining.Name = "btnBackwardChaining";
+            this.btnBackwardChaining.Size = new System.Drawing.Size(218, 28);
+            this.btnBackwardChaining.TabIndex = 9;
+            this.btnBackwardChaining.Text = "Обратный вывод";
+            this.btnBackwardChaining.UseVisualStyleBackColor = true;
+            this.btnBackwardChaining.Click += new System.EventHandler(this.btnBackwardChaining_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 281);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBackwardChaining);
             this.Controls.Add(this.btnForwardChaining);
             this.Controls.Add(this.grpbxOutput);
             this.Controls.Add(this.grpbxInput);
@@ -220,9 +220,9 @@
         private System.Windows.Forms.GroupBox grpbxInput;
         private System.Windows.Forms.Label lblRules;
         private System.Windows.Forms.GroupBox grpbxOutput;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbxSolution;
         private System.Windows.Forms.Button btnForwardChaining;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBackwardChaining;
     }
 }
 
