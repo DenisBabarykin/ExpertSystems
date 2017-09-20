@@ -12,13 +12,22 @@ namespace ProductionUI
         public static List<Rule> ConvertToRules(string text)
         {
             var rules = new List<Rule>();
-
+            foreach (var line in text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var splitted = line.Split(new string[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
+                rules.Add(new Rule(splitted[0].Trim(), splitted[1].Trim()));
+            }
             return rules;
         }
 
         public static string ConvertToText(List<Rule> rules)
         {
-            return null;
+            string text = "";
+            foreach (var rule in rules)
+            {
+                text += $"{rule.Left} -> {rule.Right}" + Environment.NewLine;
+            }
+            return text;
         }
     }
 }
