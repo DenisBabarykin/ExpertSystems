@@ -32,7 +32,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьФайлПравилToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRulesFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtbxFact = new System.Windows.Forms.TextBox();
             this.txtbxGoal = new System.Windows.Forms.TextBox();
             this.lblFact = new System.Windows.Forms.Label();
@@ -68,23 +68,24 @@
             this.файлToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(473, 24);
+            this.mainMenu.Size = new System.Drawing.Size(470, 24);
             this.mainMenu.TabIndex = 1;
             this.mainMenu.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьФайлПравилToolStripMenuItem});
+            this.openRulesFileToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // открытьФайлПравилToolStripMenuItem
+            // openRulesFileToolStripMenuItem
             // 
-            this.открытьФайлПравилToolStripMenuItem.Name = "открытьФайлПравилToolStripMenuItem";
-            this.открытьФайлПравилToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.открытьФайлПравилToolStripMenuItem.Text = "Открыть файл правил";
+            this.openRulesFileToolStripMenuItem.Name = "openRulesFileToolStripMenuItem";
+            this.openRulesFileToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.openRulesFileToolStripMenuItem.Text = "Открыть файл правил";
+            this.openRulesFileToolStripMenuItem.Click += new System.EventHandler(this.OpenRulesFileToolStripMenuItem_Click);
             // 
             // txtbxFact
             // 
@@ -169,6 +170,7 @@
             this.btnForwardChaining.TabIndex = 8;
             this.btnForwardChaining.Text = "Прямой вывод";
             this.btnForwardChaining.UseVisualStyleBackColor = true;
+            this.btnForwardChaining.Click += new System.EventHandler(this.btnForwardChaining_Click);
             // 
             // button1
             // 
@@ -178,12 +180,13 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Обратный вывод";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 281);
+            this.ClientSize = new System.Drawing.Size(470, 281);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnForwardChaining);
             this.Controls.Add(this.grpbxOutput);
@@ -209,7 +212,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьФайлПравилToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openRulesFileToolStripMenuItem;
         private System.Windows.Forms.TextBox txtbxFact;
         private System.Windows.Forms.TextBox txtbxGoal;
         private System.Windows.Forms.Label lblFact;
