@@ -17,13 +17,13 @@ namespace ProductionSystem
         public ProductionInferenceEngine(List<Rule> rules)
         {
             Rules = rules;
-            WorkSpace = new Stack<Rule>();
         }
 
         public InferenceResult ExecuteForwardChaining(string fact, string goal)
         {
             Goal = goal;
 
+            WorkSpace = new Stack<Rule>();
             InferenceResult result;
             if (CheckGoal(fact, 0))    // recursion starts here
                 result = new InferenceResult(true, WorkSpace.Reverse().ToList());
@@ -71,7 +71,20 @@ namespace ProductionSystem
 
         public InferenceResult ExecuteBackwardChaining(string fact, string goal)
         {
-            return null;
+            Goal = fact;
+
+            var tempRules = Rules;
+            Rules = Rules.Select(r => new Rule(r.Right, r.Left)).ToList();
+
+            WorkSpace = new Stack<Rule>();
+            InferenceResult result;
+            if (CheckGoal(goal, 0))    // recursion starts here
+                result = new InferenceResult(true, WorkSpace.Reverse().ToList());
+            else
+                result = new InferenceResult(false, null);
+
+            Rules = tempRules;
+            return result;
         }
     }
 }

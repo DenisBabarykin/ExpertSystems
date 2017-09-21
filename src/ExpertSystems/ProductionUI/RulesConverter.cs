@@ -20,12 +20,22 @@ namespace ProductionUI
             return rules;
         }
 
-        public static string ConvertToText(List<Rule> rules)
+        public static string ConvertForwardRulesToText(List<Rule> rules)
         {
             string text = "";
             foreach (var rule in rules)
             {
                 text += $"{rule.Left} -> {rule.Right}" + Environment.NewLine;
+            }
+            return text;
+        }
+
+        public static string ConvertBackwardRulesToText(List<Rule> rules)
+        {
+            string text = "";
+            foreach (var rule in rules)
+            {
+                text += $"{rule.Left} <- {rule.Right}" + Environment.NewLine;
             }
             return text;
         }

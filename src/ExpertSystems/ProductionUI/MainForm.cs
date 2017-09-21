@@ -42,7 +42,7 @@ namespace ProductionUI
                 var engine = new ProductionInferenceEngine(RulesConverter.ConvertToRules(txtbxRules.Text));
                 var result = engine.ExecuteForwardChaining(txtbxFact.Text, txtbxGoal.Text);
                 if (result.HasSolution)
-                    txtbxSolution.Text = RulesConverter.ConvertToText(result.Explanation);
+                    txtbxSolution.Text = RulesConverter.ConvertForwardRulesToText(result.Explanation);
                 else
                     txtbxSolution.Text = "Нет решений";
             }
@@ -59,7 +59,7 @@ namespace ProductionUI
                 var engine = new ProductionInferenceEngine(RulesConverter.ConvertToRules(txtbxRules.Text));
                 var result = engine.ExecuteBackwardChaining(txtbxFact.Text, txtbxGoal.Text);
                 if (result.HasSolution)
-                    txtbxSolution.Text = RulesConverter.ConvertToText(result.Explanation);
+                    txtbxSolution.Text = RulesConverter.ConvertBackwardRulesToText(result.Explanation);
                 else
                     txtbxSolution.Text = "Нет решений";
             }
