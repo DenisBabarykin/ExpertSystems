@@ -46,7 +46,7 @@ namespace ProductionSystem
                 return true;
 
 
-            if (CheckGoal(rule.Right, 0))
+            if (NoCycles() && CheckGoal(rule.Right, 0))
                 return true;
             else
             {
@@ -62,6 +62,11 @@ namespace ProductionSystem
                 return null;
             else
                 return rules[index];
+        }
+
+        private bool NoCycles()
+        {
+            return (WorkSpace.Count(r => r.IsEqual(WorkSpace.Peek())) == 1) ? true : false;
         }
 
         public InferenceResult ExecuteBackwardChaining(string fact, string goal)

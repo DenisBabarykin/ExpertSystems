@@ -17,5 +17,10 @@ namespace ProductionSystem
             Left = leftPart;
             Right = rightPart;
         }
+
+        public bool IsEqual(Rule rule)
+        {
+            return (rule.Left == Left && rule.Right == Right) ? true : false;
+        }
     }
 }
