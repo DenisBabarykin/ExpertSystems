@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProductionSystem
 {
-    public class Rule
+    public class ProductionRule
     {
         public string Left { get; set; }
 
         public string Right { get; set; }
 
-        public Rule(string leftPart, string rightPart)
+        public ProductionRule(string leftPart, string rightPart)
         {
             Left = leftPart;
             Right = rightPart;
         }
 
-        public bool IsEqual(Rule rule)
+        public bool IsEqual(ProductionRule rule)
         {
             return (rule.Left == Left && rule.Right == Right) ? true : false;
         }

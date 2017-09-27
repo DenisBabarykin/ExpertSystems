@@ -8,27 +8,27 @@ namespace ProductionSystem
 {
     public class ProductionInferenceEngine
     {
-        public List<Rule> Rules { get; set; }
+        public List<ProductionRule> Rules { get; set; }
 
         private string Goal { get; set; }
 
-        private Stack<Rule> WorkSpace { get; set; }
+        private Stack<ProductionRule> WorkSpace { get; set; }
 
-        public ProductionInferenceEngine(List<Rule> rules)
+        public ProductionInferenceEngine(List<ProductionRule> rules)
         {
             Rules = rules;
         }
 
-        public InferenceResult ExecuteForwardChaining(string fact, string goal)
+        public ProductionInferenceResult ExecuteForwardChaining(string fact, string goal)
         {
             Goal = goal;
 
-            WorkSpace = new Stack<Rule>();
-            InferenceResult result;
+            WorkSpace = new Stack<ProductionRule>();
+            ProductionInferenceResult result;
             if (CheckGoal(fact, 0))    // recursion starts here
-                result = new InferenceResult(true, WorkSpace.Reverse().ToList());
+                result = new ProductionInferenceResult(true, WorkSpace.Reverse().ToList());
             else
-                result = new InferenceResult(false, null);
+                result = new ProductionInferenceResult(false, null);
 
             return result;
         }
@@ -55,7 +55,7 @@ namespace ProductionSystem
             }
         }
 
-        private Rule TryGetNextRule(string left, int index)
+        private ProductionRule TryGetNextRule(string left, int index)
         {
             var rules = Rules.Where(r => r.Left == left)?.ToList();
             if (rules == null || rules.Count <= index)
@@ -69,19 +69,19 @@ namespace ProductionSystem
             return (WorkSpace.Count(r => r.IsEqual(WorkSpace.Peek())) == 1) ? true : false;
         }
 
-        public InferenceResult ExecuteBackwardChaining(string fact, string goal)
+        public ProductionInferenceResult ExecuteBackwardChaining(string fact, string goal)
         {
             Goal = fact;
 
             var tempRules = Rules;
-            Rules = Rules.Select(r => new Rule(r.Right, r.Left)).ToList();
+            Rules = Rules.Select(r => new ProductionRule(r.Right, r.Left)).ToList();
 
-            WorkSpace = new Stack<Rule>();
-            InferenceResult result;
+            WorkSpace = new Stack<ProductionRule>();
+            ProductionInferenceResult result;
             if (CheckGoal(goal, 0))    // recursion starts here
-                result = new InferenceResult(true, WorkSpace.Reverse().ToList());
+                result = new ProductionInferenceResult(true, WorkSpace.Reverse().ToList());
             else
-                result = new InferenceResult(false, null);
+                result = new ProductionInferenceResult(false, null);
 
             Rules = tempRules;
             return result;

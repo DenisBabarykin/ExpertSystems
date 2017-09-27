@@ -2,13 +2,13 @@
 
 namespace ProductionSystem
 {
-    public class InferenceResult
+    public class ProductionInferenceResult
     {
         public bool HasSolution { get; set; }
 
-        public List<Rule> Explanation { get; set; }
+        public List<ProductionRule> Explanation { get; set; }
 
-        public InferenceResult(bool hasSolution, List<Rule> explanation)
+        public ProductionInferenceResult(bool hasSolution, List<ProductionRule> explanation)
         {
             HasSolution = hasSolution;
             Explanation = explanation;
