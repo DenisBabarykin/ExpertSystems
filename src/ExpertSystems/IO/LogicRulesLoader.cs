@@ -9,11 +9,10 @@ namespace IO
 {
     public class LogicRulesLoader
     {        
-        public static List<LogicRule> LoadFromFile(string fileName)
+        public static List<LogicRule> LoadFromFile(string text)
         {
             var rules = new List<LogicRule>();
-            var lines = System.IO.File.ReadAllLines(fileName).ToList();   
-            foreach (var line in lines)            
+            foreach (var line in text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
                 rules.Add(ParseRule(line));            
             return rules;
         }

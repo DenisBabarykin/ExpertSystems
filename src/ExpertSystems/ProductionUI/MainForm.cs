@@ -72,7 +72,7 @@ namespace ProductionUI
                 }
                 else if (rbLogic.Checked)
                 {
-                    var engine = new LogicInferenceEngine(LogicRulesLoader.LoadFromFile(RulesFileName));
+                    var engine = new LogicInferenceEngine(LogicRulesLoader.LoadFromFile(txtbxRules.Text));
                     var rule = LogicRulesLoader.ParseRule(txtbxGoal.Text); 
                     var result = engine.ExecuteBackwardChaining(rule);
                     if (result.HasSolution)
