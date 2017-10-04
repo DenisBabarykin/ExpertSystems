@@ -1,0 +1,3033 @@
+<problemConditions>
+	<variables>
+		<variable name="X1" lingName="Степень соответствия профиля ФГОС и реализуемой ООП">
+			<term name="отсутствует" 	a="0.0" b="0.0" c="0.1" d="0.2" />
+			<term name="низкая" 		a="0.1" b="0.2" c="0.3" d="0.4" />
+			<term name="средняя" 		a="0.3" b="0.4" c="0.6" d="0.7" />
+			<term name="высокая" 		a="0.6" b="0.7" c="0.85" d="0.95" />
+			<term name="полное" 		a="0.85" b="0.95" c="1.0" d="1.0" />
+		</variable>
+		
+		<variable name="X2" lingName="Степень обеспечения профиля">
+			<term name="отсутствует" 	a="0.0" b="0.0" c="0.1" d="0.2" />
+			<term name="низкая" 		a="0.1" b="0.2" c="0.3" d="0.4" />
+			<term name="средняя" 		a="0.3" b="0.4" c="0.6" d="0.7" />
+			<term name="высокая" 		a="0.6" b="0.7" c="0.8" d="0.9" />
+			<term name="полное" 		a="0.8" b="0.9" c="1.0" d="1.0" />
+		</variable>
+		
+		<variable name="X3" lingName="Степень удаленности работодателя">
+			<term name="близко" 		a="0.0" b="0.0" c="0.2" d="0.3" />
+			<term name="удаленный" 		a="0.2" b="0.3" c="0.5" d="0.7" />
+			<term name="далеко" 		a="0.5" b="0.7" c="1.0" d="1.0" />
+		</variable>
+		
+		<variable name="X4" lingName="Размер компенсации дополнительных затрат">
+			<term name="отсутствует" 	a="0.0" b="0.0" c="0.1" d="0.3" />
+			<term name="частичная" 		a="0.1" b="0.3" c="0.7" d="0.8" />
+			<term name="полная" 		a="0.7" b="0.8" c="1.0" d="1.0" />
+		</variable>
+		
+		<variable name="X5" lingName="Реализуемость профиля">
+			<term name="нереализуем" 	a="0.0" b="0.0" c="0.55" d="0.7" />
+			<term name="реализуем" 		a="0.55" b="0.85" c="1.0" d="1.0" />
+		</variable>
+		
+		<variable name="Y" lingName="Целесообразность реализации профиля" isResult="true">
+			<term name="отсутствует" 	a="0.0" b="0.0" c="0.1" d="0.2" />
+			<term name="низкая" 		a="0.1" b="0.2" c="0.3" d="0.4" />
+			<term name="средняя" 		a="0.3" b="0.4" c="0.6" d="0.7" />
+			<term name="высокая" 		a="0.6" b="0.7" c="0.8" d="0.9" />
+			<term name="полное" 		a="0.8" b="0.9" c="1.0" d="1.0" />
+		</variable>
+	</variables>
+	<rules>
+
+    <rule>
+      <input>
+        <variable name="X5" value="нереализуем"/>
+      </input>
+      <output>
+        <variable name="Y" value="отсутствует"/>
+      </output>
+    </rule>
+		
+		<!--            -->
+		<!--     X2     -->
+		<!--   полное   -->
+		<!--            -->
+		
+		<!-- X1 полное, X2 полное -->
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<!-- X1 высокая, X2 полное -->
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<!-- X1 средняя, X2 полное -->
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 низкая, X2 полное -->
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 отсутствует, X2 полное -->
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="полное" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!--            -->
+		<!--     X2     -->
+		<!--  высокая   -->
+		<!--            -->
+				
+		<!-- X1 полное, X2 высокая -->
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<!-- X1 высокая, X2 высокая -->
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="полное" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<!-- X1 средняя, X2 высокая -->
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 низкая, X2 высокая -->
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 отсутствует, X2 высокая -->
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="высокая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!--            -->
+		<!--     X2     -->
+		<!--  средняя   -->
+		<!--            -->
+		
+		<!-- X1 полное, X2 средняя -->
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 высокая, X2 средняя -->
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 средняя, X2 средняя -->
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 низкая, X2 средняя -->
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 отсутствует, X2 средняя -->
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="средняя" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!--            -->
+		<!--     X2     -->
+		<!--  низкая    -->
+		<!--            -->
+		
+		<!-- X1 полное, X2 низкая -->
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="высокая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 высокая, X2 низкая -->
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 средняя, X2 низкая -->
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 низкая, X2 низкая -->
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 отсутствует, X2 низкая -->
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="низкая" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		
+		<!--            -->
+		<!--     X2     -->
+		<!--отсутствует -->
+		<!--            -->
+		
+		<!-- X1 полное, X2 отсутствует -->
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="полное" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 высокая, X2 отсутствует -->
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="средняя" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 средняя, X2 отсутствует -->
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средняя" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 низкая, X2 отсутствует -->
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="низкая" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкая" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<!-- X1 отсутствует, X2 отсутствует -->
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="близко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="удаленный" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="полная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="частичная" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="отсутствует" />
+				<variable name="X2" value="отсутствует" />
+				<variable name="X3" value="далеко" />
+				<variable name="X4" value="отсутствует" />
+				<variable name="X5" value="реализуем" />
+			</input>
+			<output>
+				<variable name="Y" value="отсутствует" />
+			</output>
+		</rule>
+		
+		
+	</rules>
+</problemConditions>
