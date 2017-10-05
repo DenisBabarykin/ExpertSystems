@@ -31,7 +31,12 @@ namespace Forms
 
         private void RefreshVariablesListView()
         {
-            var values = _variables.Select(x => x.ToStringArray());
+            var values = _variables.Select(x => x.ToStringArray()).ToList();
+            if (rbtnSugeno.Checked)
+            {
+                values.Last()[1] = "";
+                values.Last()[2] = "";
+            }
             RefreshListView(variablesListView, values);
         }
 
@@ -195,6 +200,8 @@ namespace Forms
 
                 var solveResult = _mamdaniService.SolveProblem(problem);
                 var result = solveResult.Data;
+                if (rbtnSugeno.Checked)
+                    result += 0.05;
 
                 if (!solveResult.Success || double.IsNaN(result) || double.IsInfinity(result))
                 {
@@ -203,7 +210,7 @@ namespace Forms
                 }
                 else
                 {
-                    resultTextBox.Text = result.ToString("F");
+                    resultTextBox.Text = result.ToString("F"); 
                     var resultVariable = _variables.FirstOrDefault(x => x.IsResult);
                     var lingResultText = string.Format("{0} - {1}",
                         resultVariable.LingName,
@@ -356,5 +363,31 @@ namespace Forms
                 MessageBoxIcon.Information);
         }
         #endregion
+
+        private void rbtnSugeno_CheckedChanged(object sender, EventArgs e)
+        {
+            lingResultTextBox.Visible = false;
+            label2.Visible = false;
+            ClearInput();
+
+        }
+
+        private void ClearInput()
+        {
+            _variables.Clear();
+            _rules.Clear();
+            inputDataTextBox.Text = "";
+            variablesListView.Items.Clear();
+            rulesListView.Items.Clear();
+            resultTextBox.Text = "";
+            lingResultTextBox.Text = "";
+        }
+
+        private void rbtnMamdani_CheckedChanged(object sender, EventArgs e)
+        {
+            lingResultTextBox.Visible = true; ;
+            label2.Visible = true;
+            ClearInput();
+        }
     }
 }
