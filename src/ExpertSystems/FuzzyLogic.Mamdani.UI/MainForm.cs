@@ -273,6 +273,7 @@ namespace Forms
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
+            ofd.InitialDirectory = Environment.CurrentDirectory;
             ofd.Filter = "Файлы xml|*.xml";
             ofd.Multiselect = false;
 

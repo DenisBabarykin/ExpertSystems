@@ -1,0 +1,152 @@
+<problemConditions>
+	<variables>
+		<variable name="X1" lingName="Показатель приоритета профиля для студента">
+			<term name="низкий" 	a="0.0" b="0.0" c="0.3" d="0.4" />
+			<term name="средний" 	a="0.3" b="0.4" c="0.6" d="0.7" />
+			<term name="высокий" 	a="0.6" b="0.7" c="1.0" d="1.0" />
+		</variable>
+		<variable name="X2" lingName="Уровень профильной подготовки студента">
+			<term name="неуд" 	a="0.0" b="0.0" c="0.4" d="0.5" />
+			<term name="уд" 	a="0.4" b="0.6" c="0.6" d="0.7" />
+			<term name="хор" 	a="0.6" b="0.8" c="0.8" d="0.9" />
+			<term name="отл" 	a="0.8" b="1.0" c="1.0" d="1.0" />
+		</variable>
+		<variable name="Y" lingName="Показатель целесообразности обучения по профилю" isResult="true">
+      <term name="ноль"     a="0.0" b="0.0" c="0.2" d="0.3" />
+			<term name="0.3*X1+1*X2" 	a="0.15" b="0.35" c="0.4" d="0.5" />
+			<term name="0.3*X1+0.7*X2" 	a="0.15" b="0.35" c="0.4" d="0.5" />
+			<term name="0.3*X1+0.4*X2" 	a="0.15" b="0.35" c="0.4" d="0.5" />
+			<term name="0.3*X1+0.1*X2" 	a="0.15" b="0.35" c="0.4" d="0.5" />
+			<term name="0.7*X1+1*X2" 	a="0.35" b="0.55" c="0.6" d="0.7" />
+			<term name="0.7*X1+0.7*X2" 	a="0.35" b="0.55" c="0.6" d="0.7" />
+			<term name="0.7*X1+0.4*X2" 	a="0.35" b="0.55" c="0.6" d="0.7" />
+			<term name="0.7*X1+0.1*X2" 	a="0.35" b="0.55" c="0.6" d="0.7" />
+			<term name="1*X1+1*X2" 	a="0.55" b="0.75" c="0.8" d="0.9" />
+			<term name="1*X1+0.7*X2" 	a="0.55" b="0.75" c="0.8" d="0.9" />
+			<term name="1*X1+0.4*X2" 	a="0.55" b="0.75" c="0.8" d="0.9" />
+			<term name="1*X1+0.1*X2" 	a="0.55" b="0.75" c="0.8" d="0.9" />
+      <term name="полный" 	a="0.75" b="0.9" c="1.0" d="1.0" />
+		</variable>
+	</variables>
+	<rules>
+		<rule>
+			<input>
+				<variable name="X1" value="высокий" />
+				<variable name="X2" value="отл" />
+			</input>
+			<output>
+				<variable name="Y" value="1*X1+1*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокий" />
+				<variable name="X2" value="хор" />
+			</input>
+			<output>
+				<variable name="Y" value="1*X1+0.7*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокий" />
+				<variable name="X2" value="уд" />
+			</input>
+			<output>
+				<variable name="Y" value="1*X1+0.4*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="высокий" />
+				<variable name="X2" value="неуд" />
+			</input>
+			<output>
+				<variable name="Y" value="1*X1+0.1*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средний" />
+				<variable name="X2" value="отл" />
+			</input>
+			<output>
+				<variable name="Y" value="0.7*X1+1*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средний" />
+				<variable name="X2" value="хор" />
+			</input>
+			<output>
+				<variable name="Y" value="0.7*X1+0.7*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средний" />
+				<variable name="X2" value="уд" />
+			</input>
+			<output>
+				<variable name="Y" value="0.7*X1+0.4*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="средний" />
+				<variable name="X2" value="неуд" />
+			</input>
+			<output>
+				<variable name="Y" value="0.7*X1+0.1*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкий" />
+				<variable name="X2" value="отл" />
+			</input>
+			<output>
+				<variable name="Y" value="0.3*X1+1*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкий" />
+				<variable name="X2" value="хор" />
+			</input>
+			<output>
+				<variable name="Y" value="0.3*X1+0.7*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкий" />
+				<variable name="X2" value="уд" />
+			</input>
+			<output>
+				<variable name="Y" value="0.3*X1+0.4*X2" />
+			</output>
+		</rule>
+		
+		<rule>
+			<input>
+				<variable name="X1" value="низкий" />
+				<variable name="X2" value="неуд" />
+			</input>
+			<output>
+				<variable name="Y" value="0.3*X1+0.1*X2" />
+			</output>
+		</rule>
+	</rules>
+</problemConditions>
