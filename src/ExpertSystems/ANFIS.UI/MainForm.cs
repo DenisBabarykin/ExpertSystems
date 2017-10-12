@@ -104,14 +104,22 @@ namespace ANFIS.UI
             timer.Stop();
 
             double err = bprop.Error(tx, ty, fis.RuleBase);
+            string line = "";
 
             double correctClass = 0;
             for (int i = 0; i < tx.Length; i++)
             {
                 double[] o = fis.Inference(tx[i]);
+                if (tx[i].Length == 4 && o.Length == 3)
+                    line = $"input: [{tx[i][0]}, {tx[i][1]}, {tx[i][2]}, {tx[i][3]}] output:[{o[0].ToString("F2")}, {o[1].ToString("F2")}, {o[2].ToString("F2")}] expected output: [{ty[i][0]}, {ty[i][1]}, {ty[i][2]}]";
                 for (int j = 0; j < ty[i].Length; j++)
                     if (ty[i][j] == 1.0 && o[j] == o.Max())
+                    {
                         correctClass++;
+                        line += " OK";
+                    }
+                if (tx[i].Length == 4 && o.Length == 3)
+                    InMemoryLogger.PrintMessage(line);
             }
 
             InMemoryLogger.PrintMessage(string.Format("Correct answers {5}\tClassification Error {4}\tElapsed {2}\tRuleBase {3}", err, bprop.GetType().Name, timer.Elapsed, fis.RuleBase.Length, 1.0 - correctClass / ty.Length, correctClass));
