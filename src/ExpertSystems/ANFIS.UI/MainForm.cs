@@ -76,7 +76,7 @@ namespace ANFIS.UI
                 double[][] y;
                 double[][] tx;
                 double[][] ty;
-                SampleData(input, output, 120, out x, out y, out tx, out ty);
+                SampleData(input, output, input.Count() - int.Parse(txtbxTestCount.Text), out x, out y, out tx, out ty);
 
                 Backprop bprop = new Backprop(1e-2, abstol: 1e-4, reltol: 1e-7, adjustThreshold: 1e-20);
                 bprop.UnknownCaseFaced += AddRule<GaussianRule2>;
@@ -98,9 +98,9 @@ namespace ANFIS.UI
 
         private void Solve(double[][] x, double[][] y, double[][] tx, double[][] ty, ITraining bprop)
         {
-            KMEANSExtractorI extractor = new KMEANSExtractorI(15);
+            KMEANSExtractorI extractor = new KMEANSExtractorI(int.Parse(txtbxRulesCount.Text));
             var timer = Stopwatch.StartNew();
-            var fis = ANFISBuilder<GaussianRule2>.Build(x, y, extractor, bprop, 1000);
+            var fis = ANFISBuilder<GaussianRule2>.Build(x, y, extractor, bprop, int.Parse(txtbxMaxIterCount.Text));
             timer.Stop();
 
             double err = bprop.Error(tx, ty, fis.RuleBase);
@@ -114,7 +114,7 @@ namespace ANFIS.UI
                         correctClass++;
             }
 
-            InMemoryLogger.PrintMessage(string.Format("Correct answers {5} \tClassification Error {4}\tElapsed {2}\tRuleBase {3}", err, bprop.GetType().Name, timer.Elapsed, fis.RuleBase.Length, 1.0 - correctClass / ty.Length, correctClass));
+            InMemoryLogger.PrintMessage(string.Format("Correct answers {5}\tClassification Error {4}\tElapsed {2}\tRuleBase {3}", err, bprop.GetType().Name, timer.Elapsed, fis.RuleBase.Length, 1.0 - correctClass / ty.Length, correctClass));
         }
 
         private void OnPrintMessage(object sender, LoggerEventArgs args)
@@ -123,6 +123,11 @@ namespace ANFIS.UI
             {
                 txtbxOut.AppendText(args.Meassage);
             });
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtbxOut.Clear();
         }
     }
 }
