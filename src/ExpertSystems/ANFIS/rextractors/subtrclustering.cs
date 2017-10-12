@@ -33,7 +33,7 @@ namespace NeuroFuzzy.rextractors
                     }
                     if (progress++ % 100 == 0)
                     {
-                        _log.Info($"Potential {progress}/{x.Length}");
+                        InMemoryLogger.PrintMessage($"Potential {progress}/{x.Length}");
                     }
                 });
 
@@ -46,7 +46,7 @@ namespace NeuroFuzzy.rextractors
             c.Add(wn);
             while (D > cap)
             {
-                _log.Info($"Iteration {c.Count} [{D} cap {cap}]");
+                InMemoryLogger.PrintMessage($"Iteration {c.Count} [{D} cap {cap}]");
                 progress = 0;
                 Parallel.For(0, x.Length, row =>
                 {

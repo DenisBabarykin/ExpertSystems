@@ -82,7 +82,7 @@ Restart:
                 {
                     int neig = math.NearestNeighbourhood(ruleBase.Select(z => z.Centroid).ToArray(), x[sample]);
                     UnknownCaseFaced(ruleBase, x[sample], y[sample], ruleBase[neig].Centroid);
-                    _log.Info("Adjusting rule base. Now {0} are in base.", ruleBase.Count);
+                    InMemoryLogger.PrintMessage($"Adjusting rule base. Now {ruleBase.Count} are in base.");
                     lRatesConseq = null;
                     lRatesParams = null;
                     prev_p_accum = null;

@@ -84,5 +84,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ANFIS\ANFIS.csproj">
+      <Project>{0134FEE4-C5AE-4E72-8154-391B0426ADFB}</Project>
+      <Name>ANFIS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

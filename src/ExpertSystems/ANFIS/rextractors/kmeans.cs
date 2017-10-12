@@ -39,11 +39,11 @@ namespace NeuroFuzzy.rextractors
             double[] error = new double[restarts];
             for (int r = 0; r < restarts; r++)
             {
-                _log.Info($"Restart {r}");
+                InMemoryLogger.PrintMessage($"Restart {r}");
                 double er = 0.0;
                 pool[r] = clustering(x, k, initType, out er);
                 error[r] = er;
-                _log.Info($"Error {er}");
+                InMemoryLogger.PrintMessage($"Error {er}");
             }
             double min = error.Min();
             int opt = error.FindIndex(z => z == min);
@@ -81,14 +81,14 @@ namespace NeuroFuzzy.rextractors
                         m = Update(x, m, a, ntu, k);
                     int unmoved = ntu.Count(z => !z);
 
-                    _log.Info($"[{(DateTime.Now - start).TotalMilliseconds} ms] Iteration {iters++}, reassigned {reassigned} unmoved {unmoved} Time {sw.ElapsedMilliseconds} ms     ");
+                    InMemoryLogger.PrintMessage($"[{(DateTime.Now - start).TotalMilliseconds} ms] Iteration {iters++}, reassigned {reassigned} unmoved {unmoved} Time {sw.ElapsedMilliseconds} ms     ");
                
                     if (reassigned != 0)
                         confirmations = 0;
                 }
                 while (reassigned != 0);
                 confirmations++;
-                _log.Info($"CONFIRMATION {confirmations}");
+                InMemoryLogger.PrintMessage($"CONFIRMATION {confirmations}");
             } while (confirmations < 2);
 
             error = Error(x, m, a);
