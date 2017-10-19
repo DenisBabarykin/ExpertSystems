@@ -8,7 +8,7 @@ namespace ExpertSystem.Test
 {
     [TestClass]
     public class ProblemConditionsReaderTest
-    {
+    {       
         [TestMethod]
         public void ReadConditionsFromXmlStringTest()
         {
