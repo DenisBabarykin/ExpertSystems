@@ -144,5 +144,157 @@ namespace ExpertSystem.Test
             Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
            // Assert.AreEqual(solveResult.Data, solveResultPattern);
         }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod8()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod9()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod10()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod11()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod12()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod13()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod14()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
+
+        [TestMethod]
+        public void MamdaniServiceTestMethod15()
+        {
+            var solveResultPattern = 0.736;
+            var result = ProblemConditionsHelper.ReadConditionsFromXmlString(Resources.input);
+            var mamdaniService = new MamdaniService();
+            ProblemConditions conditions = new ProblemConditions() { Rules = result.Data.Rules, Variables = result.Data.Variables };
+
+            var problem = new Problem()
+            {
+                InputData = new double[] { 0.7, 0.4 },
+                ProblemConditions = conditions
+            };
+
+            var solveResult = mamdaniService.SolveProblem(problem);
+            Assert.IsTrue(Math.Abs(solveResult.Data - solveResultPattern) < 1e-3);
+            // Assert.AreEqual(solveResult.Data, solveResultPattern);
+        }
     }
 }
