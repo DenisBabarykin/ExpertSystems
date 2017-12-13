@@ -1,0 +1,101 @@
+<problemConditions>
+	<variables>
+		<variable name="X1" lingName="Достоверность информации о работодателе">
+			<term name="недостоверно" 	a="0.0" b="0.0" c="0.6" d="0.8" />
+			<term name="достоверно" 	a="0.6" b="0.8" c="1.0" d="1.0" />
+		</variable>
+    <variable name="X2" lingName="Надежность партнерства с работодателем">
+      <term name="ненадежно" 	a="0.0" b="0.0" c="0.6" d="0.8" />
+      <term name="надежно" 	a="0.6" b="0.8" c="1.0" d="1.0" />
+    </variable>
+    <variable name="X3" lingName="Описание вакансии">
+      <term name="отсутствует" 	a="0.0" b="0.0" c="0.1" d="0.3" />
+      <term name="частичное" 	a="0.1" b="0.3" c="0.7" d="0.8" />
+      <term name="полное" 	a="0.7" b="0.8" c="1.0" d="1.0" />
+    </variable>
+    <variable name="X4" lingName="Обоснованность количественной потребности">
+      <term name="не обосновано" 	a="0.0" b="0.0" c="0.5" d="0.7" />
+      <term name="обосновано" 	a="0.5" b="0.7" c="1.0" d="1.0" />
+    </variable>
+    <variable name="Y" lingName="Показатель достоверности информации" isResult="true">
+      <term name="недостоверно" 	a="0.0" b="0.0" c="0.6" d="0.8" />
+      <term name="достоверно" 	a="0.6" b="0.8" c="1.0" d="1.0" />
+		</variable>
+	</variables>
+	<rules>
+		<rule>
+			<input>
+				<variable name="X1" value="недостоверно" />
+			</input>
+			<output>
+				<variable name="Y" value="недостоверно" />
+			</output>
+		</rule>
+
+		<rule>
+		  <input>
+			<variable name="X2" value="ненадежно" />
+		  </input>
+		  <output>
+			<variable name="Y" value="недостоверно" />
+		  </output>
+		</rule>
+
+		<rule>
+		  <input>
+			<variable name="X3" value="отсутствует" />
+		  </input>
+		  <output>
+			<variable name="Y" value="недостоверно" />
+		  </output>
+		</rule>
+
+		<rule>
+		  <input>
+			<variable name="X4" value="обосновано" />
+			<variable name="X3" value="частичное" />
+			<variable name="X2" value="надежно" />
+			<variable name="X1" value="достоверно" />
+		  </input>
+		  <output>
+			<variable name="Y" value="достоверно" />
+		  </output>
+		</rule>
+		
+		<rule>
+		  <input>
+			<variable name="X4" value="обосновано" />
+			<variable name="X3" value="полное" />
+			<variable name="X2" value="надежно" />
+			<variable name="X1" value="достоверно" />
+		  </input>
+		  <output>
+			<variable name="Y" value="достоверно" />
+		  </output>
+		</rule>
+		
+		<rule>
+		  <input>
+			<variable name="X4" value="не обосновано" />
+			<variable name="X3" value="частичное" />
+			<variable name="X2" value="надежно" />
+			<variable name="X1" value="достоверно" />
+		  </input>
+		  <output>
+			<variable name="Y" value="недостоверно" />
+		  </output>
+		</rule>
+		
+		<rule>
+		  <input>
+			<variable name="X4" value="не обосновано" />
+			<variable name="X3" value="полное" />
+			<variable name="X2" value="надежно" />
+			<variable name="X1" value="достоверно" />
+		  </input>
+		  <output>
+			<variable name="Y" value="достоверно" />
+		  </output>
+		</rule>
+	</rules>
+</problemConditions>

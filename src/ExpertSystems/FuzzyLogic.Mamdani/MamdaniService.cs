@@ -87,7 +87,7 @@ namespace FuzzyLogic.Mamdani
             double[] result = new double[problem.ProblemConditions.NumberOfConditions];
             int i = 0;
 
-            _logBuilder.AppendLine("Начало процедуры фаззификации");
+            InMemoryLogger.PrintMessage("Начало процедуры фаззификации");
 
             foreach (var rule in problem.ProblemConditions.Rules)
             {
@@ -96,13 +96,13 @@ namespace FuzzyLogic.Mamdani
                     var id = condition.FuzzyVariable.Id;
                     var variable = condition.FuzzyVariable;
                     result[i] = variable.GetValueForTerm(condition.Term, problem.InputData[id]);
-                    _logBuilder.Append(variable.Name + " : " + result[i] + " ");
+                    InMemoryLogger.PrintMessage("Значение нечеткой перемнной: " + variable.Name + " : " + result[i] + " ");
                     i++;
                 }
-                _logBuilder.AppendLine();
+                //InMemoryLogger.PrintMessage();
             }
 
-            _logBuilder.AppendLine("Процедура фаззификации завершена");
+            InMemoryLogger.PrintMessage("Процедура фаззификации завершена");
             return result;
         }
 
@@ -115,7 +115,7 @@ namespace FuzzyLogic.Mamdani
             int j = 0;
             double[] result = new double[problem.ProblemConditions.NumberOfConclusions];
 
-            _logBuilder.AppendLine("Начало процедуры аггрегации");
+            InMemoryLogger.PrintMessage("Начало процедуры аггрегации");
 
             foreach (var rule in problem.ProblemConditions.Rules)
             {
@@ -126,11 +126,11 @@ namespace FuzzyLogic.Mamdani
                     i++;
                 }
                 result[j] = truthOfConditions;
-                _logBuilder.Append(result[j] + " ");
+                InMemoryLogger.PrintMessage(rule + " Достоверность:" + result[j] + " ");
                 j++;
             }
-            _logBuilder.AppendLine();
-            _logBuilder.AppendLine("Процедура аггрегации завершена");
+            //InMemoryLogger.PrintMessage();
+            InMemoryLogger.PrintMessage("Процедура аггрегации завершена");
 
             return result;
         }
@@ -141,7 +141,7 @@ namespace FuzzyLogic.Mamdani
         private UnionOfTerms Composite(Problem problem, double[] aggregationResult)
         {
             var result = new UnionOfTerms();
-            _logBuilder.AppendLine("Начало процедуры композиции");
+            InMemoryLogger.PrintMessage("Начало процедуры композиции");
 
             int i = 0;
 
@@ -153,7 +153,7 @@ namespace FuzzyLogic.Mamdani
                 i++;
             }
 
-            _logBuilder.AppendLine("Процедура композиции завершена");
+            InMemoryLogger.PrintMessage("Процедура композиции завершена");
             return result;
         }
 
@@ -164,7 +164,7 @@ namespace FuzzyLogic.Mamdani
         {
             double x, y1 = 0.0, y2 = 0.0, step = 0.01;
 
-            _logBuilder.AppendLine("Начало процедуры дефаззификации");
+            InMemoryLogger.PrintMessage("Начало процедуры дефаззификации");
 
             for (x = 0.0; x <= 1.0; x += step)
             {
@@ -175,8 +175,8 @@ namespace FuzzyLogic.Mamdani
                 y2 += compositionResult.MaxValue(x);
             }
 
-            _logBuilder.AppendLine("Результат: " + (y1 / y2));
-            _logBuilder.AppendLine("Процедура дефаззификации завершена");
+            InMemoryLogger.PrintMessage("Результат: " + (y1 / y2));
+            InMemoryLogger.PrintMessage("Процедура дефаззификации завершена");
 
             return y1 / y2;
         }

@@ -11,12 +11,12 @@ namespace FuzzyLogic.Mamdani.Problems
         /// <summary>
         /// Правила вывода
         /// </summary>
-        public List<Rule> Rules { get; }
+        public List<Rule> Rules { get; set; }
 
         /// <summary>
         /// Нечеткие переменные
         /// </summary>
-        public List<FuzzyVariable> Variables { get; }
+        public List<FuzzyVariable> Variables { get; set; }
 
         public ProblemConditions()
         {
