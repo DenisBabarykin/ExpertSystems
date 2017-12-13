@@ -51,15 +51,12 @@ namespace Forms
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.task1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.task2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.task3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.lingResultTextBox = new System.Windows.Forms.TextBox();
+            this.txtbxExplanation = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
@@ -245,7 +242,6 @@ namespace Forms
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.fillToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -256,57 +252,26 @@ namespace Forms
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.openToolStripMenuItem.Text = "Открыть";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // fillToolStripMenuItem
-            // 
-            this.fillToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.task1ToolStripMenuItem,
-            this.task2ToolStripMenuItem,
-            this.task3ToolStripMenuItem});
-            this.fillToolStripMenuItem.Name = "fillToolStripMenuItem";
-            this.fillToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.fillToolStripMenuItem.Text = "Шаблоны задач";
-            // 
-            // task1ToolStripMenuItem
-            // 
-            this.task1ToolStripMenuItem.Name = "task1ToolStripMenuItem";
-            this.task1ToolStripMenuItem.Size = new System.Drawing.Size(361, 22);
-            this.task1ToolStripMenuItem.Text = "Оценка достоверности информации работодателей";
-            this.task1ToolStripMenuItem.Click += new System.EventHandler(this.task1ToolStripMenuItem_Click);
-            // 
-            // task2ToolStripMenuItem
-            // 
-            this.task2ToolStripMenuItem.Name = "task2ToolStripMenuItem";
-            this.task2ToolStripMenuItem.Size = new System.Drawing.Size(361, 22);
-            this.task2ToolStripMenuItem.Text = "Отбор профилей подготовки";
-            this.task2ToolStripMenuItem.Click += new System.EventHandler(this.task2ToolStripMenuItem_Click);
-            // 
-            // task3ToolStripMenuItem
-            // 
-            this.task3ToolStripMenuItem.Name = "task3ToolStripMenuItem";
-            this.task3ToolStripMenuItem.Size = new System.Drawing.Size(361, 22);
-            this.task3ToolStripMenuItem.Text = "Оценка траекторий подготовки студента";
-            this.task3ToolStripMenuItem.Click += new System.EventHandler(this.task3ToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.saveAsToolStripMenuItem.Text = "Сохранить как";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(150, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -329,13 +294,22 @@ namespace Forms
             this.lingResultTextBox.Size = new System.Drawing.Size(439, 20);
             this.lingResultTextBox.TabIndex = 11;
             // 
+            // txtbxExplanation
+            // 
+            this.txtbxExplanation.Location = new System.Drawing.Point(21, 307);
+            this.txtbxExplanation.Multiline = true;
+            this.txtbxExplanation.Name = "txtbxExplanation";
+            this.txtbxExplanation.Size = new System.Drawing.Size(592, 150);
+            this.txtbxExplanation.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(623, 297);
+            this.ClientSize = new System.Drawing.Size(623, 469);
+            this.Controls.Add(this.txtbxExplanation);
             this.Controls.Add(this.lingResultTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.inputDataTextBox);
@@ -381,16 +355,13 @@ namespace Forms
         private MenuStrip mainMenuStrip;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem fillToolStripMenuItem;
-        private ToolStripMenuItem task1ToolStripMenuItem;
-        private ToolStripMenuItem task2ToolStripMenuItem;
-        private ToolStripMenuItem task3ToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ColumnHeader lingName;
         private Label label2;
         private TextBox lingResultTextBox;
+        private TextBox txtbxExplanation;
     }
 }
 

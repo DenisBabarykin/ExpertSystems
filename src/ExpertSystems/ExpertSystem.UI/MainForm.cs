@@ -19,6 +19,8 @@ namespace Forms
         {
             _mamdaniService = mamdaniService;
             InitializeComponent();
+            InMemoryLogger.OnPrintMessage += OnPrintMessage;
+
         }
 
         #region private
@@ -275,6 +277,7 @@ namespace Forms
             var ofd = new OpenFileDialog();
             ofd.Filter = "Файлы xml|*.xml";
             ofd.Multiselect = false;
+            
 
             var dialogResult = ofd.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -285,7 +288,7 @@ namespace Forms
 
                     if (!result.Success)
                     {
-                        MessageBox.Show("Во время загрузки задачи возникли непридвиденные ошибки", "Ошибка",
+                        MessageBox.Show("Во время загрузки задачи возникли непредвиденные ошибки", "Ошибка",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
@@ -355,5 +358,13 @@ namespace Forms
                 MessageBoxIcon.Information);
         }
         #endregion
+
+        private void OnPrintMessage(object sender, LoggerEventArgs args)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                txtbxExplanation.AppendText(args.Meassage);
+            });
+        }
     }
 }

@@ -30,5 +30,10 @@ namespace FuzzyLogic.Mamdani
 
             return list.ToArray();
         }
+
+        public override string ToString()
+        {
+            return string.Join(" & ", Conditions.Select(x => x.ToString()).ToArray()) + " -> "+ Conclusion.ToString();
+        }
     }
 }

@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ProblemConditionsParseException.cs" />
+    <Compile Include="InMemoryLogger.cs" />
+    <Compile Include="LoggerEventArgs.cs" />
     <Compile Include="MamdaniService.cs" />
     <Compile Include="Problems\ProblemConditionsWriter.cs" />
     <Compile Include="Problems\ProblemConditionsReader.cs" />
